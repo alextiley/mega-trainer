@@ -9,7 +9,13 @@
 	"private": false,
 	"dependencies": {
 		"express": "latest",
-		"extend": "latest"
+		"extend": "latest",
+		"mongoose": "latest",
+		"connect-mongo": "latest",
+		"connect-flash": "latest",
+		"jade": "latest",
+		"passport": "latest",
+		"passport-local": "latest"
 	},
 	"contributors": {
 		"name": "Alex Tiley",
