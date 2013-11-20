@@ -3,21 +3,10 @@ node-mvc
 
 A boilerplate for developing MVC applications with node.js and express.js.
 
-Features
---------
-* Quickly run multiple sub-apps under one express http server using mounted paths
-* Mapping of context paths and root app folders (/apps/mount.json)
-* Environment specific configuration for the http server (/config.json)
-* Environment specific configuration for individual apps
-* Configuration object containing path structures and environment specific config
-* Bootstrap methods for including all mongoose models from a single directory
-* Bootstrap methods for including all controllers from a single directory
-* Shared directory, allowing you to share code modules from multiple apps with ease
+Out of the box this version of my boilerplate has some extra's that have been configured specifically for my own use, such as:
 
-User Guide
-----------
-Coming soon...
+* Render override - allowing common data to be scoped to all templates;
+* Authentication for admin section
+* A partially working administration section
 
-* /config.json
-* /app/mounts.json
-* /app/{myApplication}/config.json
+You may find some of this useful, so feel free to play around with my code. Please reference my github repo if you use any of the code here =)
