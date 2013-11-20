@@ -1,5 +1,5 @@
 {
-	"name": "node-mvc",
+	"name": "node-mvc-extended",
 	"description": "A boilerplate for developing MVC applications with node js, including util methods and commonly used configuration.",
 	"version": "0.0.2",
 	"author": "Alex Tiley",
@@ -30,6 +30,6 @@
 	},
 	"repository" : {
 		"type" : "git",
-		"url" : "https://github.com/alextiley/node-mvc-boilerplate.git"
+		"url" : "https://github.com/alextiley/node-mvc-extended.git"
 	}
 }

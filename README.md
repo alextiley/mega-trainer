@@ -1,5 +1,5 @@
-node-mvc
-========
+node-mvc-extended
+=================
 
 A boilerplate for developing MVC applications with node.js and express.js.
 
