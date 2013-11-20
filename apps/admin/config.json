@@ -1,0 +1,32 @@
+{
+	"development": {
+		"db": {
+			"url": "mongodb://localhost/mydb",
+			"username": "username",
+			"password": "password"
+		},
+		"cookies": {
+			"secret": "my-cookie-secret"
+		}
+	},
+	"staging": {
+		"db": {
+			"url": "",
+			"username": "",
+			"password": ""
+		},
+		"cookies": {
+			"secret": ""
+		}
+	},
+	"production": {
+		"db": {
+			"url": "",
+			"username": "",
+			"password": ""
+		},
+		"cookies": {
+			"secret": ""
+		}
+	}
+}

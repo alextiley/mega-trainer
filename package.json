@@ -1,0 +1,29 @@
+{
+	"name": "node-mvc",
+	"description": "A boilerplate for developing MVC applications with node js, including util methods and commonly used configuration.",
+	"version": "0.0.2",
+	"author": "Alex Tiley",
+	"keywords": [
+		"mvc"
+	],
+	"private": false,
+	"dependencies": {
+		"express": "latest",
+		"extend": "latest"
+	},
+	"contributors": {
+		"name": "Alex Tiley",
+		"email": "alextiley@gmail.com"
+	},
+	"devDependencies": {
+		"mocha": "latest",
+		"nodemon": "latest"
+	},
+	"scripts": {
+		"start": "nodemon --debug application.js"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/alextiley/node-mvc-boilerplate.git"
+	}
+}

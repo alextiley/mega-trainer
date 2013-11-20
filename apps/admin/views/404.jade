@@ -1,0 +1,13 @@
+extends /layouts/full_width
+
+block title
+	title Page not found (404) | Admin
+
+block content
+
+	.jumbotron
+		.container
+			h1 Page not found (404)
+			p Sorry, but the page could not be found. Please check the URL and try again.
+			pre [#{method}] #{url} - 404 Not Found
+			a(href="/admin/dashboard" class="btn btn-lg btn-success") Go to Dashboard

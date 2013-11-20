@@ -1,0 +1,36 @@
+//- Needs refactoring
+
+- if (messages.errors !== undefined)
+	- if (messages.errors.length > 0)
+		.alert.alert-danger
+			- if (messages.errors.length === 1) {
+				p.message #{messages.errors[0]}
+			- } else {
+				p.summary There are multiple errors. Please correct the following:
+				ul.messages
+					each error in messages.errors
+						li #{error}
+			- }
+
+- if (messages.info !== undefined)
+	- if (messages.info.length > 0)
+		.alert.alert-info
+			- if (messages.info.length === 1) {
+				p.message #{messages.info[0]}
+			- } else {
+				p.summary There are multiple notifications for your attention:
+				ul.messages
+					each message in messages.info
+						li #{message}
+			- }
+
+- if (messages.success !== undefined)
+	- if (messages.success.length > 0)
+		.alert.alert-success
+			- if (messages.success.length === 1) {
+				p.message #{messages.success[0]}
+			- } else {
+				ul.messages
+					each message in messages.success
+						li #{message}
+			- }
