@@ -39,9 +39,7 @@ self.getHtmlBodyClasses = function (request, view) {
 	var classes = self.getPageIdFromViewPath(view);
 
 	// Todo: output role name when multiple roles exist
-	if (request.isAuthenticated !== undefined) {
-		classes += request.isAuthenticated() ? ' logged_in' : '';
-	}
+	classes += request.isAuthenticated() ? ' logged_in' : '';
 
 	return classes;
 };

@@ -1,9 +1,12 @@
 module.exports = function (app, config) {
-	
+
 	var path = require('path'),
 		express = require('express'),
+		passport = require('passport'),
+		flash = require('connect-flash'),
+		mongoStore = require('connect-mongo')(express),
 		urlUtils = require(path.join(config.paths.shared.utils, 'url')),
-		constants = require(path.join(config.paths.shared.utils,'constants')),
+		constants = require(path.join(config.paths.shared.utils, 'constants')),
 		expressUtils = require(path.join(config.paths.shared.utils, 'express')),
 		renderOverride = require(path.join(config.paths.shared.middleware, 'renderOverride'));
 
@@ -17,6 +20,9 @@ module.exports = function (app, config) {
 
 	// Set .jade as the default template extension
 	app.set('view engine', 'jade');
+
+	// Enable flash message middleware
+	app.use(flash());
 
 	// Set the assets path
 	app.use(express.static(config.paths.app.assets));
@@ -42,9 +48,26 @@ module.exports = function (app, config) {
 	// Automatically parse request bodies (scopes post data to request.body)
 	app.use(express.json());
 	app.use(express.urlencoded());
-	
+
 	// Allow HTTP method overrides (using _method hidden input)
 	app.use(express.methodOverride());
+
+	// Provides cookie-based sessions with mongo storage
+	app.use(express.session({
+		secret: config.cookies.secret,
+		store: new mongoStore ({
+			url: config.db.url
+		})
+	}));
+
+	// Enable passport authentication
+	app.use(passport.initialize());
+	app.use(passport.session());
+
+	// Handle user authentication
+	app.use(function (request, response, next) {
+		require(path.join(config.paths.app.middleware, 'authentication'))(request, response, next, config);
+	});
 
 	// Include common view data, invoked on all route requests
 	app.use(renderOverride.requests(config));
@@ -69,7 +92,6 @@ module.exports = function (app, config) {
 	app.get('/500', function (request, response, next) {
 		var error = new Error('You\'ve requested the error page. Doh!');
 		error.status = 500;
-	
 		next(error);
 	});
 

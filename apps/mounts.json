@@ -2,5 +2,9 @@
 	{
 		"directory": "site",
 		"path": "/"
+	},
+	{
+		"directory": "admin",
+		"path": "/admin"
 	}
 ]
