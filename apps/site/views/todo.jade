@@ -1,0 +1,22 @@
+extend /layouts/default
+
+block title
+	title Todo | Alex's Awesome Todo List App
+
+block content
+
+	h2 What's occuring?
+
+	include /partials/global/notifications
+
+	form(action="/create" method="post")
+		fieldset
+			.row
+				.col-sm-6.col-md-4
+					input.form-control(name="description" placeholder="What needs to be done?")
+
+			if todos
+				each todo in todos
+					.row
+						.col-sm-6.col-md-4
+							input.form-control(name="todo-#{id}" value="#{todo.description}")

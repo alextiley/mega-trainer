@@ -1,9 +1,9 @@
 {
 	"development": {
 		"db": {
-			"url": "mongodb://localhost/mydb",
-			"username": "username",
-			"password": "password"
+			"url": "mongodb://localhost/todo",
+			"username": "atiley",
+			"password": "superawesomepasswordtime"
 		},
 		"cookies": {
 			"secret": "my-cookie-secret"

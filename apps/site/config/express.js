@@ -2,6 +2,8 @@ module.exports = function (app, config) {
 	
 	var path = require('path'),
 		express = require('express'),
+		flash = require('connect-flash'),
+		mongoStore = require('connect-mongo')(express),
 		urlUtils = require(path.join(config.paths.shared.utils, 'url')),
 		constants = require(path.join(config.paths.shared.utils,'constants')),
 		expressUtils = require(path.join(config.paths.shared.utils, 'express')),
@@ -17,6 +19,9 @@ module.exports = function (app, config) {
 
 	// Set .jade as the default template extension
 	app.set('view engine', 'jade');
+
+	// Enable flash message middleware
+	app.use(flash());
 
 	// Set the assets path
 	app.use(express.static(config.paths.app.assets));
@@ -48,6 +53,14 @@ module.exports = function (app, config) {
 
 	// Include common view data, invoked on all route requests
 	app.use(renderOverride.requests(config));
+
+	// Provides cookie-based sessions with mongo storage
+	app.use(express.session({
+		secret: config.cookies.secret,
+		store: new mongoStore ({
+			url: config.db.url
+		})
+	}));
 
 	// Allows mounting of roots
 	app.use(app.router);
