@@ -56,8 +56,12 @@ module.exports = function (app, config) {
 	app.use(express.session({
 		secret: config.cookies.secret,
 		store: new mongoStore ({
-			url: config.db.url
-		})
+			url: config.db.url,
+			clear_interval: 3600 // 1 hour
+		}),
+		cookie: {
+			maxAge: 24 * 60 * 60 * 1000 // 24 hours
+		}
 	}));
 
 	// Enable passport authentication
