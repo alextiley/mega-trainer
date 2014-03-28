@@ -1,0 +1,25 @@
+extends /layouts/full_width
+
+block title
+	title Dashboard | Admin
+
+block content
+
+	.jumbotron
+
+		.container
+
+			h1 Dashboard
+
+			include /partials/global/flash
+			
+			p This is the dashboard. One day we'll show you some cool graphs here...
+
+	.container
+
+		.row
+
+			.col-md-3
+				h2 Administrators
+				p This section allows you to manage system administrators.
+				p: a(href="/administrators" class="btn btn-default") Manage administrators

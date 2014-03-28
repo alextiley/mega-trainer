@@ -1,10 +1,6 @@
 [
 	{
-		"directory": "site",
+		"directory": "mega-trainer",
 		"path": "/"
-	},
-	{
-		"directory": "admin",
-		"path": "/admin"
 	}
 ]

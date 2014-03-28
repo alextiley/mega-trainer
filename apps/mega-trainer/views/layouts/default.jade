@@ -1,0 +1,22 @@
+doctype html
+html.no-js
+	head
+		block title
+		
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		
+		link(rel='stylesheet', href='/css/vendor/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/vendor/bootstrap-theme.min.css')
+		link(rel='stylesheet', href='/css/global.css')
+
+	body(class='#{common.bodyClasses}')
+
+		include /partials/global/header
+
+		.main_container.container
+			block content
+
+		include /partials/global/footer
+
+		script(src='/js/vendor/jquery.js')
+		script(src='/js/vendor/bootstrap.min.js')
